@@ -1,3 +1,3 @@
-module HIC
+module hic
 
 go 1.22.5
