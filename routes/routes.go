@@ -9,5 +9,6 @@ import (
 func RoutesSetUp(router *gin.Engine) {
 	{ // Pages
 		router.GET("/", handlers.GetIndex)
+		router.GET("/about", handlers.GetAbout)
 	}
 }
