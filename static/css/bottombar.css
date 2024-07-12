@@ -1,0 +1,184 @@
+.bottombar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #8aacf54c;
+    height: auto;
+    gap: 3%;
+    margin-top: auto;
+}
+
+.refe {
+    /* background-color: #4b92fc; */
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    width: 50vw;
+    font-size: 1.2vw;
+}
+.refe-en {
+    display: none;
+    flex-direction: row;
+    gap: 3%;
+    width: 50vw;
+    font-size: 1.2vw;
+}
+
+.reference {
+    color: #011a3f;
+    font-weight: 500;
+}
+
+.reference-link {
+    color: rgba(255, 255, 255, 0.653);
+}
+
+.reference-link:hover {
+    color: #032353;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -5%;
+    list-style: none;
+}
+
+.icon-content {
+    margin: 0 5%;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-content a:hover {
+    color: white;
+}
+
+.filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.bottombar .icons .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.bottombar .icons .icon-content a[data-social="linkedin"] .filled,
+.bottombar .icons .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+}
+
+.bottombar .icons .icon-content a[data-social="github"] .filled,
+.bottombar .icons .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #24262a;
+}
+.bottombar .icons .icon-content a[data-social="instagram"] .filled,
+.bottombar .icons .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(45deg, #405de6, #5b51db, #b33ab4, #c135b4, #e1306c, #fd1f1f);
+}
+.bottombar .icons .icon-content a[data-social="youtube"] .filled,
+.bottombar .icons .icon-content a[data-social="youtube"] ~ .tooltip {
+    background-color: #ff0000;
+}
+
+@media only screen and (max-width: 820px) {
+    .bottombar {
+        gap: 5%;
+        height: auto;
+        padding-bottom: 1.6%;
+    }
+
+    .refe {
+        /* background-color: #0274b3; */
+        min-width: 50vw;
+        width: auto;
+        font-size: unset;
+        display: flex;
+        flex-direction: column;
+        margin-top: -2%;
+        margin-right: 0%;
+        margin-left: -2%;
+        padding-left: 5%;
+    }
+    .refe-en {
+        /* background-color: #0274b3; */
+        min-width: 50vw;
+        width: auto;
+        display: none;
+        font-size: unset;
+        flex-direction: column;
+        margin-top: -2%;
+        margin-right: 0%;
+        margin-left: -2%;
+        padding-left: 5%;
+    }
+
+    .reference {
+        margin: 0%;
+        margin-left: -5%;
+    }
+
+    .icons {
+        /* background-color: #0274b3; */
+        flex-direction: column;
+        margin-left: -8%;
+        gap: 3%;
+    }
+
+    .icon-content {
+        margin: 5% 5%;
+    }
+}
