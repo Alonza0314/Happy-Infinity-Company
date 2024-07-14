@@ -121,6 +121,7 @@
 
 .member-describe {
     /* background-color: antiquewhite; */
+    padding-top: 5%;
     margin-left: 2%;
     margin-right: 5%;
     flex: 1;
