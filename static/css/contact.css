@@ -1,0 +1,61 @@
+.contact-info {
+    background-color: #ffffffbb;
+    width: 70vw;
+    height: auto;
+    padding: 5vh 5vw;
+    text-align: left;
+    margin: 5vh auto;
+    border-radius: 20px;
+}
+
+.contact-info-en {
+    display: none;
+    background-color: #ffffffbb;
+    width: 70vw;
+    height: auto;
+    padding: 5vh 5vw;
+    text-align: left;
+    margin: 5vh auto;
+    border-radius: 20px;
+}
+
+.info {
+    font-size: xx-large;
+}
+
+.cilink {
+    font-size: xx-large;
+    color: black;
+    text-decoration: none;
+}
+
+.cilink:hover {
+    color: #3776ff;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 820px) {
+    .contact-info {
+        padding: 5vh unset;
+        padding-left: 10vw;
+    }
+
+    .contact-info-en {
+        display: none;
+        padding: 5vh unset;
+        padding-left: 10vw;
+    }
+
+    .contact-title {
+        font-size: 6vw;
+        font-weight: bold;
+    }
+
+    .info{
+        font-size: 5vw;
+    }
+    
+    .cilink {
+        font-size: 5vw;
+    }
+}
