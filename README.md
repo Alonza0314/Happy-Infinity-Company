@@ -4,7 +4,7 @@
 
 Since Alonza wanted to be a CEO, he establish this HAPPY-INFINITY-COMPANY. During this process, he become a full stack IT engineer.
 
-And, the key concept is "HAVING FUN".
+And, the key concept is "BE HAPPY".
 
 ## Requirements
 
