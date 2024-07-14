@@ -181,7 +181,7 @@
     .member-describe {
         margin: 0 2%;
         font-size: 100%;
-        padding-top: 5%;
+        padding: 5% 0;
     }
 
     .title {
