@@ -13,3 +13,7 @@ func GetIndex(c *gin.Context) {
 func GetAbout(c *gin.Context) {
 	c.HTML(http.StatusOK, "about.html", nil)
 }
+
+func GetContact(c *gin.Context) {
+	c.HTML(http.StatusOK, "contact.html", nil)
+}

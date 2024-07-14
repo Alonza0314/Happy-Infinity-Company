@@ -10,5 +10,6 @@ func RoutesSetUp(router *gin.Engine) {
 	{ // Pages
 		router.GET("/", handlers.GetIndex)
 		router.GET("/about", handlers.GetAbout)
+		router.GET("/contact", handlers.GetContact)
 	}
 }
