@@ -38,3 +38,7 @@ func GetSign(c *gin.Context) {
 		"ActionURLSignin": actionURLSignin,
 	})
 }
+
+func GetDashboard(c *gin.Context) {
+	c.HTML(http.StatusOK, "dashboard.html", nil)
+}

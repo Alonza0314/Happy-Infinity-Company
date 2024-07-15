@@ -2,7 +2,6 @@ package configs_test
 
 import (
 	"errors"
-	"log"
 	"testing"
 
 	"github.com/magiconair/properties/assert"
@@ -13,8 +12,7 @@ func GetConfigs(identifier string) (string, error) {
 	viper.SetConfigType("toml")
 	viper.SetConfigFile("config.conf")
 	if err := viper.ReadInConfig(); err != nil {
-		log.Println(err)
-		return "", errors.New("server error => getconfig function error ")
+		return "", errors.New("server error => getconfig function error\n\t" + err.Error())
 	}
 	return viper.GetString(identifier), nil
 }

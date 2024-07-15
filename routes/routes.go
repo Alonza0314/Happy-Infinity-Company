@@ -12,9 +12,11 @@ func RoutesSetUp(router *gin.Engine) {
 		router.GET("/about", handlers.GetAbout)
 		router.GET("/contact", handlers.GetContact)
 		router.GET("/sign", handlers.GetSign)
+		router.GET("/dashboard", handlers.GetDashboard)
 	}
 
 	{ // Sign works
 		router.POST("/signup", handlers.PostSignup)
+		router.POST("/signin", handlers.PostSignin)
 	}
 }

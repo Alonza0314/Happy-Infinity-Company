@@ -1,16 +1,3 @@
-function Language() {
-    var rh = document.getElementById("right-half");
-    var rhen = document.getElementById("right-half-en");
-    
-    if (rh.style.display === "none") {
-        rh.style.display = "flex";
-        rhen.style.display = "none";
-    } else {
-        rh.style.display = "none";
-        rhen.style.display = "flex";
-    }
-}
-
 let signin = document.getElementById('signin');
 let signup = document.getElementById('signup');
 let form_box = document.getElementsByClassName('form-box')[0];
@@ -76,27 +63,27 @@ document.addEventListener("DOMContentLoaded", function() {
         var passwordAgain = document.getElementById("password-again").value;
     
         if (!checkSignupNull(username, email, password, passwordAgain)) {
-            alert("欄位空白");
+            alert("blank field\n\n欄位空白");
             return false;
         }
     
         if (!checkSignupUsername(username)) {
-            alert("使用者名稱僅能且必須包含小寫英文及數字，請重新輸入");
+            alert("username can only and must contain lowercase English and numbers\nplease re-enter\n\n使用者名稱僅能且必須包含小寫英文及數字，請重新輸入");
             return false;
         }
     
         if (!checkSignupEmail(email)) {
-            alert("電子郵件格式錯誤，請重新輸入");
+            alert("email format error\nplease re-enter\n\n電子郵件格式錯誤，請重新輸入");
             return false;
         }
     
         if (!checkSignupPassword(password)) {
-            alert("密碼長度需大於等於4，請重新輸入");
+            alert("password length must be greater than or equal to 4\nplease re-entern\n\n密碼長度需大於等於4，請重新輸入");
             return false;
         }
     
         if (!checkSignupPasswordAgain(password, passwordAgain)) {
-            alert("密碼不相同，請重新輸入");
+            alert("password is different\nplease re-enter\n\n密碼不相同，請重新輸入");
             return false;
         }
     
@@ -108,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var password = document.getElementById("signin-password").value;
     
         if (username == "" || password == "") {
-            alert("欄位空白");
+            alert("blank field\n\n欄位空白");
             return false;
         }
         return true;
@@ -142,16 +129,16 @@ function getUrlParameter(name) {
 
 var signupCondition= getUrlParameter('signup');
 if (signupCondition === 'true') {
-    alert('Signup success.\nPlease re-signin\n\n註冊成功\n請重新登入');
+    alert('signup success\nplease re-signin\n\n註冊成功\n請重新登入');
 } else {
     if (signupCondition !== '') {
-        alert('Fail: ' + signupCondition);
+        alert('fail: ' + signupCondition);
     }
 }
 
 var signinCondition = getUrlParameter('signin');
 if (signinCondition !== '') {
-    alert('Fail:' + signinCondition);
+    alert('fail:' + signinCondition);
 }
 
 var resetpwCondition = getUrlParameter('resetpw');

@@ -48,14 +48,14 @@ func main() {
 	store := cookie.NewStore([]byte("dufeng0314"))
 	router.Use(sessions.Sessions("mysession", store))
 
-	sessionMaxAge, err := configs.GetSessionCookieTimeout("session.timeout")
+	sessionTimeout, err := configs.GetSessionCookieTimeout("session.timeout")
 	if err != nil {
 		log.Println(err)
 
 	}
 	store.Options(sessions.Options{
 		Path:   "/",
-		MaxAge: int(time.Duration(sessionMaxAge) * time.Minute),
+		MaxAge: int(time.Duration(sessionTimeout) * time.Minute),
 	})
 
 	routes.RoutesSetUp(router)
