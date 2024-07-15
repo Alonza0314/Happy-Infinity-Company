@@ -18,8 +18,9 @@ And, the key concept is "BE HAPPY".
 ## How to Use
 
 Before beginning, please make sure that your environment meets the requirements.
+Then, you should go to configs/config.conf to set up your own server address and the correct mongodb server address.
 
-First, check the dependencies are correct:
+For checking the dependencies are correct:
 
 ```bash
 make deps
