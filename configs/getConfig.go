@@ -8,7 +8,7 @@ import (
 
 func GetConfigs(identifier string) (string, error) {
 	viper.SetConfigType("toml")
-	viper.SetConfigFile("configs/config.confs")
+	viper.SetConfigFile("configs/config.conf")
 	if err := viper.ReadInConfig(); err != nil {
 		return "", errors.New("server error => getconfig function error\n\t" + err.Error())
 	}

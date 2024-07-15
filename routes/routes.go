@@ -13,4 +13,8 @@ func RoutesSetUp(router *gin.Engine) {
 		router.GET("/contact", handlers.GetContact)
 		router.GET("/sign", handlers.GetSign)
 	}
+
+	{ // Sign works
+		router.POST("/signup", handlers.PostSignup)
+	}
 }

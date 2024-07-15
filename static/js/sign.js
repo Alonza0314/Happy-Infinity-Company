@@ -142,16 +142,16 @@ function getUrlParameter(name) {
 
 var signupCondition= getUrlParameter('signup');
 if (signupCondition === 'true') {
-    alert('註冊成功\n\n請重新登入');
+    alert('Signup success.\nPlease re-signin\n\n註冊成功\n請重新登入');
 } else {
     if (signupCondition !== '') {
-        alert('註冊失敗：' + signupCondition);
+        alert('Fail: ' + signupCondition);
     }
 }
 
 var signinCondition = getUrlParameter('signin');
 if (signinCondition !== '') {
-    alert('登入失敗：' + signinCondition);
+    alert('Fail:' + signinCondition);
 }
 
 var resetpwCondition = getUrlParameter('resetpw');
