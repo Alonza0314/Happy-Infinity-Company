@@ -2,6 +2,7 @@ package configs
 
 import (
 	"errors"
+	"strconv"
 
 	"github.com/spf13/viper"
 )
@@ -28,4 +29,16 @@ func GetActionURL(identifier, path string) (string, error) {
 		return "https://" + addr + path, nil
 	}
 	return "http://" + addr + path, nil
+}
+
+func GetSessionCookieTimeout(identifier string) (int, error) {
+	timeout, err := GetConfigs(identifier)
+	if err != nil {
+		return 0, err
+	}
+	timeoutInt, err := strconv.Atoi(timeout)
+	if err != nil {
+		return 0, errors.New("server error => Atoi function error\n\t" + err.Error())
+	}
+	return timeoutInt, nil
 }

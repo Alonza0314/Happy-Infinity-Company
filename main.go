@@ -1,10 +1,14 @@
 package main
 
 import (
+	"hic/configs"
 	"hic/routes"
 	"log"
 	"os"
+	"time"
 
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
 
@@ -40,6 +44,19 @@ func main() {
 
 	router.Static("/static", "./static")
 	router.LoadHTMLGlob("templates/*")
+
+	store := cookie.NewStore([]byte("dufeng0314"))
+	router.Use(sessions.Sessions("mysession", store))
+
+	sessionMaxAge, err := configs.GetSessionCookieTimeout("session.timeout")
+	if err != nil {
+		log.Println(err)
+
+	}
+	store.Options(sessions.Options{
+		Path:   "/",
+		MaxAge: int(time.Duration(sessionMaxAge) * time.Minute),
+	})
 
 	routes.RoutesSetUp(router)
 
