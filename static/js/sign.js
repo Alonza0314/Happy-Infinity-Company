@@ -138,7 +138,7 @@ if (signupCondition === 'true') {
 
 var signinCondition = getUrlParameter('signin');
 if (signinCondition !== '') {
-    alert('fail:' + signinCondition);
+    alert('fail: ' + signinCondition);
 }
 
 var resetpwCondition = getUrlParameter('resetpw');
