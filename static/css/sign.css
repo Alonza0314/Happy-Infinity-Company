@@ -104,16 +104,23 @@ input:focus::placeholder {
     transition: background-color 0.35s ease;
 }
 
-.form-box a {
+.zhfpw, .enfpw {
     font-size: 12px;
     letter-spacing: 2px;
     text-decoration: none;
     color: #ffffffe0;
     margin-top: 5px;
-    margin-left: 165px;
 }
 
-.form-box a:hover {
+.zhfpw {
+    margin-left: 52%;
+}
+
+.enfpw {
+    margin-left: 25%;
+}
+
+.zhfpw:hover, .enfpw:hover {
     text-decoration: underline;
 }
 
@@ -156,6 +163,12 @@ input:focus::placeholder {
 .con-box p {
     font-size: 12px;
     letter-spacing: 2px;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+}
+
+.con-box p + p {
+    margin-top: 0vh;
 }
 
 .con-box button {
@@ -231,7 +244,7 @@ input:focus::placeholder {
 
     /* 登入註冊中間間隔 */
     .con-box {
-        width: 60%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
