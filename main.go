@@ -2,6 +2,7 @@ package main
 
 import (
 	"hic/configs"
+	"hic/handlers"
 	"hic/routes"
 	"log"
 	"os"
@@ -51,12 +52,15 @@ func main() {
 	sessionTimeout, err := configs.GetSessionCookieTimeout("session.timeout")
 	if err != nil {
 		log.Println(err)
-
+		return
 	}
 	store.Options(sessions.Options{
 		Path:   "/",
 		MaxAge: int(time.Duration(sessionTimeout) * time.Minute),
 	})
+
+	router.Use(handlers.SigninRedirect)
+	router.Use(handlers.NoneSigninRedirect)
 
 	routes.RoutesSetUp(router)
 
