@@ -11,8 +11,8 @@ import (
 )
 
 func SigninRedirect(c *gin.Context) {
-	if c.Request.Method == "GET" && IsSignin(c) && c.Request.URL.Path == "/sign" {
-		c.Redirect(http.StatusFound, "/dashboard")
+	if c.Request.Method == "GET" && IsSignin(c) && c.Request.URL.Path == "/sign/" {
+		c.Redirect(http.StatusFound, "/dashboard/")
 		c.Abort()
 		return
 	}
@@ -21,7 +21,7 @@ func SigninRedirect(c *gin.Context) {
 
 func NoneSigninRedirect(c *gin.Context) {
 	if c.Request.Method == "GET" && !IsSignin(c) && !CheckPagePathDoNotNeedSignin(c) {
-		c.Redirect(http.StatusFound, "/sign")
+		c.Redirect(http.StatusFound, "/sign/")
 		c.Abort()
 		return
 	}
@@ -33,7 +33,7 @@ func CheckPagePathDoNotNeedSignin(c *gin.Context) bool {
 		"/",
 		"/about",
 		"/contact",
-		"/sign",
+		"/sign/",
 
 		"/signup",
 		"/signin",

@@ -11,8 +11,16 @@ func RoutesSetUp(router *gin.Engine) {
 		router.GET("/", handlers.GetIndex)
 		router.GET("/about", handlers.GetAbout)
 		router.GET("/contact", handlers.GetContact)
-		router.GET("/sign", handlers.GetSign)
-		router.GET("/dashboard", handlers.GetDashboard)
+		signGroup := router.Group("/sign")
+		{
+			signGroup.GET("/", handlers.GetSign)
+			// signGroup.GET("/findpw", )
+			// signGroup.GET("/resetpw", )
+		}
+		dashboardGroup := router.Group("/dashboard")
+		{
+			dashboardGroup.GET("/", handlers.GetDashboard)
+		}
 	}
 
 	{ // Sign works

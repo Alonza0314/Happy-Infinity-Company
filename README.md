@@ -19,9 +19,33 @@ And, the key concept is "BE HAPPY".
 
 Before beginning, please make sure that your environment meets the requirements.
 
+First, check the dependencies are correct:
+
+```bash
+make deps
+```
+
+For running the project:
+
+```bash
+make run
+```
+
+For building the project:
+
+```bash
+make build
+```
+
+For cleaning the building execution file:
+
+```bash
+make clean
+```
+
 ## Author
 
-You can know more about the authoe through this link: [https://alonza0314.github.io/](https://alonza0314.github.io/)
+You can know more about the author through this link: [https://alonza0314.github.io/](https://alonza0314.github.io/)
 
 ## Something to Say
 
