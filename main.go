@@ -1,11 +1,14 @@
 package main
 
 import (
+	"context"
 	"hic/configs"
 	"hic/handlers"
 	"hic/routes"
 	"log"
+	"net/http"
 	"os"
+	"os/signal"
 	"time"
 
 	"github.com/gin-contrib/sessions"
@@ -64,5 +67,36 @@ func main() {
 
 	routes.RoutesSetUp(router)
 
-	router.Run(":8080")
+	// router.Run(":8080")
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: router,
+	}
+
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, os.Interrupt)
+
+	go func() {
+		log.Println("@ Starting server...")
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalln("server error => main function error\n\t", err.Error())
+		}
+	}()
+
+	<-stop
+	log.Println("@ Shutting down server...")
+	
+	gracefulTimeout, err := configs.GetGracefulTimeout()
+	if err != nil {
+		log.Println(err)
+		gracefulTimeout = 10
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(gracefulTimeout) * time.Second)
+	defer cancel()
+
+	if err := server.Shutdown(ctx); err != nil {
+		log.Fatalln("server error => main function error\n\t", err.Error())
+	}
+
+	log.Println("@ Server gracefully stopped")
 }

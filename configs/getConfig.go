@@ -42,3 +42,15 @@ func GetSessionCookieTimeout(identifier string) (int, error) {
 	}
 	return timeoutInt, nil
 }
+
+func GetGracefulTimeout() (int, error) {
+	timeout, err := GetConfigs("graceful.timeout")
+	if err != nil {
+		return 0, err
+	}
+	timeoutInt, err := strconv.Atoi(timeout)
+	if err != nil {
+		return 0, errors.New("server error => Atoi function error\n\t" + err.Error())
+	}
+	return timeoutInt, nil
+}
