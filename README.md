@@ -41,7 +41,7 @@ make build
 For cleaning the building execution file:
 
 ```bash
-make clean
+make clear
 ```
 
 ## Author

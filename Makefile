@@ -11,20 +11,6 @@ SOURCE_FILE=main.go
 .PHONY: all
 all: build
 
-.PHONY: build
-build:
-	@echo "${BLUE}==> Building...${NC}"
-	@mkdir -p ${BUILD_DIR}
-	@go build -o ${BUILD_DIR}/${BUILD_FILE_NAME} ${SOURCE_FILE}
-	@echo "Execution file is under ${F_BLUE}'${BUILD_DIR}'${NC} directory"
-	@echo "${GREEN}==> Build complete${NC}"
-
-.PHONY: clean
-clean:
-	@echo "${BLUE}==> Cleaning up...${NC}"
-	@rm -rf ${BUILD_DIR}
-	@echo "${GREEN}==> Clean complete${NC}"
-
 .PHONY: run
 run:
 	@echo "${BLUE}==> Running application...${NC}"
@@ -35,3 +21,18 @@ deps:
 	@echo "${BLUE}==> Installing dependencies...${NC}"
 	@go mod tidy
 	@echo "${GREEN}==> Dependencies installed!${NC}"
+
+.PHONY: build
+build:
+	@echo "${BLUE}==> Building...${NC}"
+	@mkdir -p ${BUILD_DIR}
+	@go build -o ${BUILD_DIR}/${BUILD_FILE_NAME} ${SOURCE_FILE}
+	@echo "Execution file is under ${F_BLUE}'${BUILD_DIR}'${NC} directory"
+	@echo "You can execute the file by this command: ${F_BLUE}./${BUILD_DIR}/${BUILD_FILE_NAME}${NC}"
+	@echo "${GREEN}==> Build complete${NC}"
+
+.PHONY: clean
+clean:
+	@echo "${BLUE}==> Cleaning up...${NC}"
+	@rm -rf ${BUILD_DIR}
+	@echo "${GREEN}==> Clean complete${NC}"
