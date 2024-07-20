@@ -100,3 +100,24 @@ func PostPwfind(c *gin.Context) {
 
 	c.Redirect(http.StatusFound, "/sign/pwreset")
 }
+
+func PostPwreset(c *gin.Context) {
+	password := c.PostForm("password")
+
+	// 取得session
+	session := sessions.Default(c)
+	resetJSON := session.Get("resetid")
+	var resetInfo models.ResetInfo
+	json.Unmarshal([]byte(resetJSON.(string)), &resetInfo)
+
+	client := models.NewClient(resetInfo.Username, resetInfo.Email, password)
+
+	// 重設密碼
+	if err := models.ProcessPwreset(client); err != nil {
+		c.Redirect(http.StatusFound, "/sign/pwfind/?pwfind="+url.QueryEscape(err.Error()))
+		c.Abort()
+		return
+	}
+
+	c.Redirect(http.StatusFound, "/sign?pwreset="+url.QueryEscape("password change success\nplease re-signin\n\n密碼更改成功，請重新登入"))
+}

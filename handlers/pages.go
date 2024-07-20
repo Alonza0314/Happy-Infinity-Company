@@ -66,7 +66,7 @@ func GetPwreset(c *gin.Context) {
 		return
 	}
 	c.HTML(http.StatusOK, "pwreset.html", gin.H{
-		"ActionURLResetpw": actionURLPwreset,
+		"ActionURLPwreset": actionURLPwreset,
 	})
 }
 

@@ -3,6 +3,7 @@ package models
 import (
 	"context"
 	"errors"
+	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"gopkg.in/mgo.v2/bson"
@@ -87,6 +88,32 @@ func ProcessPwfind(client Client) error {
 
 	if client.Email != existingUsernameClient.Email {
 		return errors.New("email error.\n\n電子郵件錯誤")
+	}
+
+	return nil
+}
+
+func ProcessPwreset(client Client) error {
+	collection, err := SetCollection("mongodb.uri", "mongodb.database", "mongodb.clientsAccountCollection")
+	if err != nil {
+		return err
+	}
+
+	filter := map[string]interface{}{
+		"username": client.Username,
+	}
+
+	update := map[string]interface{}{
+		"$set": map[string]interface{}{
+			"password": client.Password,
+		},
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	if _, err = collection.UpdateOne(ctx, filter, update); err != nil {
+		return errors.New("server error\npassword change fail\n\n服務器錯誤，密碼更改失敗")
 	}
 
 	return nil
