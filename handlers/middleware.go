@@ -3,7 +3,6 @@ package handlers
 import (
 	"encoding/json"
 	"hic/models"
-	"log"
 	"net/http"
 	"time"
 
@@ -31,17 +30,17 @@ func NoneSigninRedirect(c *gin.Context) {
 
 func PwresetRedirect(c *gin.Context) {
 	if c.Request.URL.Path == "/sign/pwreset" {
-        session := sessions.Default(c)
-        resetid := session.Get("resetid")
+		session := sessions.Default(c)
+		resetid := session.Get("resetid")
 
-        if resetid == nil {
-            c.Redirect(http.StatusFound, "/sign/pwfind")
-            c.Abort()
-            return
-        }
-    }
+		if resetid == nil {
+			c.Redirect(http.StatusFound, "/sign/pwfind")
+			c.Abort()
+			return
+		}
+	}
 
-    c.Next()
+	c.Next()
 }
 
 func CheckPathDoNotNeedSignin(c *gin.Context) bool {
@@ -51,7 +50,7 @@ func CheckPathDoNotNeedSignin(c *gin.Context) bool {
 		"/contact",
 		"/sign/",
 		"/sign/pwfind",
-		"/sign/pwreset",	
+		"/sign/pwreset",
 
 		"/signup",
 		"/signin",
