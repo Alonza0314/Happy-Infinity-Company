@@ -53,13 +53,21 @@ func GetPwfind(c *gin.Context) {
 		return
 	}
 	c.HTML(http.StatusOK, "pwfind.html", gin.H{
-		"ActionURLPwfind": actionURLPwfind,
+		"ActionURLPwfind":  actionURLPwfind,
 		"ActionURLCaptcha": actionURLCaptcha,
 	})
 }
 
 func GetPwreset(c *gin.Context) {
-	
+	actionURLPwreset, err := configs.GetActionURL("HICserver.addr", "/pwreset")
+	if err != nil {
+		log.Println(err)
+		c.HTML(http.StatusInternalServerError, "error.html", nil)
+		return
+	}
+	c.HTML(http.StatusOK, "pwreset.html", gin.H{
+		"ActionURLResetpw": actionURLPwreset,
+	})
 }
 
 func GetDashboard(c *gin.Context) {
