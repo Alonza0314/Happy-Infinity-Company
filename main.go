@@ -64,6 +64,7 @@ func main() {
 
 	router.Use(handlers.SigninRedirect)
 	router.Use(handlers.NoneSigninRedirect)
+	router.Use(handlers.PwresetRedirect)
 
 	routes.RoutesSetUp(router)
 

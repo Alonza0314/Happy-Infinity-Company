@@ -119,5 +119,8 @@ func PostPwreset(c *gin.Context) {
 		return
 	}
 
+	session.Delete("resetid")
+	session.Save()
+
 	c.Redirect(http.StatusFound, "/sign?pwreset="+url.QueryEscape("password change success\nplease re-signin\n\n密碼更改成功，請重新登入"))
 }
