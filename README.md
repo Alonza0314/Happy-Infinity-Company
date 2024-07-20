@@ -18,7 +18,7 @@ And, the key concept is "BE HAPPY".
 ## How to Use
 
 Before beginning, please make sure that your environment meets the requirements.
-Then, you should go to configs/config.conf to set up your own server address and the correct mongodb server address.
+**Then, you should go to configs/config.conf to set up your own server address and the correct mongodb server address.**
 
 For checking the dependencies are correct:
 
@@ -51,3 +51,5 @@ You can know more about the author through this link: [https://alonza0314.github
 ## Something to Say
 
 Feel free to contact us, if you have any problem or you have something better ideas.
+
+If you find this is a not bad project, please give me a little star, thanks.
