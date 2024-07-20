@@ -59,6 +59,7 @@ func main() {
 	}
 	store.Options(sessions.Options{
 		Path:   "/",
+		Domain: "hic.alonza.xyz",
 		MaxAge: int(time.Duration(sessionTimeout) * time.Minute),
 	})
 
