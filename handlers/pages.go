@@ -39,6 +39,25 @@ func GetSign(c *gin.Context) {
 	})
 }
 
+func GetPwfind(c *gin.Context) {
+	actionURLPwfind, err := configs.GetActionURL("HICserver.addr", "/pwfind")
+	if err != nil {
+		log.Println(err)
+		c.HTML(http.StatusInternalServerError, "error.html", nil)
+		return
+	}
+	actionURLCaptcha, err := configs.GetActionURL("HICserver.addr", "/api/captcha")
+	if err != nil {
+		log.Println(err)
+		c.HTML(http.StatusInternalServerError, "error.html", nil)
+		return
+	}
+	c.HTML(http.StatusOK, "pwfind.html", gin.H{
+		"ActionURLPwfind": actionURLPwfind,
+		"ActionURLCaptcha": actionURLCaptcha,
+	})
+}
+
 func GetDashboard(c *gin.Context) {
 	c.HTML(http.StatusOK, "dashboard.html", nil)
 }

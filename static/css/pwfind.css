@@ -19,7 +19,7 @@
     box-shadow: 0px 0px 200px rgb(151, 199, 226);
 }
 
-.findpw-box {
+.pwfind-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +67,7 @@ input:focus::placeholder {
     opacity: 0;
 }
 
-.findpw-box input[type='submit'] {
+.pwfind-box input[type='submit'] {
     width: 50%;
     margin-top: 3%;
     background-color: #f6f6f6;
@@ -79,9 +79,10 @@ input:focus::placeholder {
     border: none;
     cursor: pointer;
     font-weight: bold;
+    font-size: 2vh;
 }
 
-.findpw-box input[type='submit']:hover {
+.pwfind-box input[type='submit']:hover {
     background-color: rgb(0, 56, 112);
     color: white;
     transition: background-color 0.35s ease;
@@ -104,13 +105,12 @@ input:focus::placeholder {
     width: 120px;
     height: 40px;
     margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 10%;
 }
 
 .captcha input[type='button'] {
     align-self: flex-end;
-    margin-right: -20%;
+    margin-right: -14%;
     background-color: #f6f6f6;
     outline: none;
     border-radius: 6px;
@@ -120,7 +120,7 @@ input:focus::placeholder {
     cursor: pointer;
     font-weight: bold;
     font-size: 2vh;
-    width: 25%;
+    width: 55%;
     text-align: center;
 }
 
@@ -154,6 +154,11 @@ input:focus::placeholder {
         letter-spacing: 5px;
     }
 
+    .pwfind-box input[type='submit'] {
+        border-radius: 4px;
+        font-size: 2.5vw;
+    }
+
     .auth {
         flex-direction: column;
     }
@@ -164,10 +169,13 @@ input:focus::placeholder {
 
     .captcha img {
         margin-left: 1%;
+        margin-right: 10px;
     }
 
     .captcha input[type='button'] {
-        width: 8vw;
-        font-size: 3vw;
+        border-radius: 3px;
+        width: 14vw;
+        font-size: 1.5vw;
+        margin-bottom: 0%;
     }
 }

@@ -38,7 +38,7 @@
     <div class="main">
         <div class="content">
             <div class="container">
-                <form class="findpw-box" action="{{.ActionURLFindpw}}" method="post">
+                <form class="pwfind-box" action="{{.ActionURLPwfind}}" method="post">
                     <h1 class="dp">Find Password</h1>
                     <h1 class="cell">Find<br>Password</h1>
                     <input type="text" id="username" placeholder="username" name="username">
@@ -47,10 +47,10 @@
                         <input type="text" id="captcha-code" placeholder="captcha code">
                         <div class=" captcha">
                             <img id="captcha" alt="captcha" src="" data-auth-url="{{.ActionURLCaptcha}}">
-                            <input type="button" id="refresh-captcha" value="刷新">
+                            <input type="button" id="refresh-captcha" value="刷新 / Refresh">
                         </div>
                     </div>
-                    <input type="submit" value="確認送出">
+                    <input type="submit" value="確認送出 / Enter">
                 </form>
             </div>
         </div>

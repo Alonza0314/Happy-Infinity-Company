@@ -34,9 +34,12 @@ func CheckPathDoNotNeedSignin(c *gin.Context) bool {
 		"/about",
 		"/contact",
 		"/sign/",
+		"/sign/pwfind",	
 
 		"/signup",
 		"/signin",
+
+		"/api/captcha",
 	}
 	for _, path := range paths {
 		if c.Request.URL.Path == path {
