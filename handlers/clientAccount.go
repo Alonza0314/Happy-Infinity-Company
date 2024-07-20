@@ -74,3 +74,29 @@ func PostSignin(c *gin.Context) {
 
 	c.Redirect(http.StatusFound, "/dashboard")
 }
+
+func PostPwfind(c *gin.Context) {
+	username := c.PostForm("username")
+	email := c.PostForm("email")
+	client := models.NewClient(username, email, "")
+
+	if err := models.ProcessPwfind(client); err != nil {
+		c.Redirect(http.StatusFound, "/sign/pwfind?pwfind=" + err.Error())
+		c.Abort()
+		return
+	}
+
+	resetInfo := models.ResetInfo{Username: username, Email: email}
+	resetJSON, err := json.Marshal(resetInfo)
+	if err != nil {
+		log.Println("server error => postpwfind function error\n\t" + err.Error())
+		c.Redirect(http.StatusFound, "/sign/pwfind?pwfind=" + url.QueryEscape("server error find password fail.\n\n服務器錯誤密碼找回失敗"))
+		c.Abort()
+		return
+	}
+	session := sessions.Default(c)
+	session.Set("resetid", string(resetJSON))
+	session.Save()
+
+	c.Redirect(http.StatusFound, "/sign/pwreset")
+}

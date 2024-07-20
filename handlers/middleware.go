@@ -34,7 +34,8 @@ func CheckPathDoNotNeedSignin(c *gin.Context) bool {
 		"/about",
 		"/contact",
 		"/sign/",
-		"/sign/pwfind",	
+		"/sign/pwfind",
+		"/sign/pwreset",	
 
 		"/signup",
 		"/signin",

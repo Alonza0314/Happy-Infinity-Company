@@ -58,6 +58,10 @@ func GetPwfind(c *gin.Context) {
 	})
 }
 
+func GetPwreset(c *gin.Context) {
+	
+}
+
 func GetDashboard(c *gin.Context) {
 	c.HTML(http.StatusOK, "dashboard.html", nil)
 }

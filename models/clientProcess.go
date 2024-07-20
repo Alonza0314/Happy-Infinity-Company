@@ -69,3 +69,25 @@ func ProcessSignin(client Client) error {
 
 	return nil
 }
+
+func ProcessPwfind(client Client) error {
+	collection, err := SetCollection("mongodb.uri", "mongodb.database", "mongodb.clientsAccountCollection")
+	if err != nil {
+		return err
+	}
+
+	var existingUsernameClient Client
+	err = collection.FindOne(context.Background(), bson.M{"username": client.Username}).Decode(&existingUsernameClient)
+	if err != nil {
+		if err == mongo.ErrNoDocuments {
+			return errors.New("username doesn't exist.\n\n使用者名稱不存在")
+		}
+		return err
+	}
+
+	if client.Email != existingUsernameClient.Email {
+		return errors.New("email error.\n\n電子郵件錯誤")
+	}
+
+	return nil
+}

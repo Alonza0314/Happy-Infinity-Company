@@ -141,7 +141,7 @@ if (signinCondition !== '') {
     alert('fail: ' + signinCondition);
 }
 
-var resetpwCondition = getUrlParameter('resetpw');
-if (resetpwCondition !== '') {
-    alert(resetpwCondition);
+var pwresetCondition = getUrlParameter('pwreset');
+if (pwresetCondition !== '') {
+    alert(pwresetCondition);
 }

@@ -84,7 +84,7 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-var pwfindCondition= getUrlParameter('pwfind');
+var pwfindCondition = getUrlParameter('pwfind');
 if (pwfindCondition !== '') {
     alert('fail: ' + pwfindCondition);
 }

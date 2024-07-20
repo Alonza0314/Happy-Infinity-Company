@@ -16,7 +16,7 @@ func RoutesSetUp(router *gin.Engine) {
 		{
 			signGroup.GET("/", handlers.GetSign)
 			signGroup.GET("/pwfind", handlers.GetPwfind)
-			// signGroup.GET("/resetpw", )
+			signGroup.GET("/pwreset", handlers.GetPwreset)
 		}
 		dashboardGroup := router.Group("/dashboard")
 		{
@@ -27,6 +27,8 @@ func RoutesSetUp(router *gin.Engine) {
 	{ // Sign works
 		router.POST("/signup", handlers.PostSignup)
 		router.POST("/signin", handlers.PostSignin)
+		router.POST("/pwfind", handlers.PostPwfind)
+		// router.POST("/pereset", handlers.PostPwreset)
 	}
 
 	{
