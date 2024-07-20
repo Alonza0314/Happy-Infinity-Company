@@ -28,7 +28,7 @@ func RoutesSetUp(router *gin.Engine) {
 		router.POST("/signup", handlers.PostSignup)
 		router.POST("/signin", handlers.PostSignin)
 		router.POST("/pwfind", handlers.PostPwfind)
-		// router.POST("/pereset", handlers.PostPwreset)
+		// router.POST("/pwreset", handlers.PostPwreset)
 	}
 
 	{
